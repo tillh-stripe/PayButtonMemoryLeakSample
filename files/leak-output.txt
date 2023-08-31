@@ -1,0 +1,97 @@
+┬───
+│ GC Root: System class
+│
+├─ android.view.LayoutInflater class
+│    Leaking: NO (AppCompatTextView↓ is not leaking and a class is never
+│    leaking)
+│    ↓ static LayoutInflater.sConstructorMap
+├─ java.util.HashMap instance
+│    Leaking: NO (AppCompatTextView↓ is not leaking)
+│    ↓ HashMap["android.support.v7.widget.AppCompatTextView"]
+├─ java.lang.reflect.Constructor instance
+│    Leaking: NO (AppCompatTextView↓ is not leaking)
+│    ↓ Executable.declaringClass
+├─ android.support.v7.widget.AppCompatTextView class
+│    Leaking: NO (DelegateLastClassLoader↓ is not leaking and a class is never
+│    leaking)
+│    ↓ static AppCompatTextView.$class$classLoader
+├─ dalvik.system.DelegateLastClassLoader instance
+│    Leaking: NO (aww↓ is not leaking and A ClassLoader is never leaking)
+│    ↓ ClassLoader.runtimeInternalObjects
+├─ java.lang.Object[] array
+│    Leaking: NO (aww↓ is not leaking)
+│    ↓ Object[121]
+├─ m.aww class
+│    Leaking: NO (a class is never leaking)
+│    ↓ static aww.a
+│                 ~
+├─ m.ie instance
+│    Leaking: UNKNOWN
+│    Retaining 343.7 kB in 2699 objects
+│    ↓ ie.a
+│         ~
+├─ m.ik instance
+│    Leaking: UNKNOWN
+│    Retaining 343.7 kB in 2697 objects
+│    ↓ ik.a
+│         ~
+├─ java.util.LinkedHashMap instance
+│    Leaking: UNKNOWN
+│    Retaining 343.7 kB in 2696 objects
+│    ↓ LinkedHashMap["b666f22a-674c-46dd-9bab-274a63187698"]
+│                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+├─ m.awv instance
+│    Leaking: UNKNOWN
+│    Retaining 343.5 kB in 2692 objects
+│    c instance of m.ao
+│    ↓ awv.f
+│          ~
+├─ m.awy instance
+│    Leaking: UNKNOWN
+│    Retaining 342.2 kB in 2667 objects
+│    View not part of a window view hierarchy
+│    View.mAttachInfo is null (view detached)
+│    View.mWindowAttachCount = 1
+│    mContext instance of android.view.ContextThemeWrapper
+│    ↓ View.mParent
+│           ~~~~~~~
+├─ com.google.android.gms.wallet.button.PayButton instance
+│    Leaking: YES (View.mContext references a destroyed activity)
+│    Retaining 126.5 kB in 2348 objects
+│    View not part of a window view hierarchy
+│    View.mAttachInfo is null (view detached)
+│    View.mWindowAttachCount = 1
+│    mContext instance of com.stripe.paybuttonmemoryleaksample.DetailsActivity
+│    with mDestroyed = true
+│    ↓ View.mContext
+╰→ com.stripe.paybuttonmemoryleaksample.DetailsActivity instance
+​     Leaking: YES (ObjectWatcher was watching this because com.stripe.
+​     paybuttonmemoryleaksample.DetailsActivity received Activity#onDestroy()
+​     callback and Activity#mDestroyed is true)
+​     Retaining 120.5 kB in 2285 objects
+​     key = 6d1c1c8e-47ea-404f-a62b-85876f6f9c14
+​     watchDurationMillis = 10730
+​     retainedDurationMillis = 5721
+​     mApplication instance of android.app.Application
+​     mBase instance of android.app.ContextImpl
+
+METADATA
+
+Build.VERSION.SDK_INT: 33
+Build.MANUFACTURER: samsung
+LeakCanary version: 2.11
+App process name: com.stripe.paybuttonmemoryleaksample
+Class count: 27568
+Instance count: 201702
+Primitive array count: 141754
+Object array count: 30274
+Thread count: 23
+Heap total bytes: 27454606
+Bitmap count: 2
+Bitmap total bytes: 192586
+Large bitmap count: 0
+Large bitmap total bytes: 0
+Stats: LruCache[maxSize=3000,hits=108692,misses=194211,hitRate=35%]
+RandomAccess[bytes=9650854,reads=194211,travel=75208188912,range=33280184,size=4
+1265658]
+Analysis duration: 11255 ms
